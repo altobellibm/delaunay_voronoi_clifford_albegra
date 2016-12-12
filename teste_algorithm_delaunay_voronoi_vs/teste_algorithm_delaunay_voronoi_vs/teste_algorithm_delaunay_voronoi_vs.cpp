@@ -8,24 +8,34 @@
 int main()
 {
 
-	std::vector<std::vector<double>> matrixPoint {  {0.9501, 0.4057},
-													{0.2311, 0.9355},
-													{0.6068, 0.9169},
-													{0.4860, 0.4103},
-													{0.8913, 0.8936},
-													{0.7621, 0.0579},
-													{0.4565, 0.3529},
-													{0.0185, 0.8132},
-													{0.8214, 0.0099},
-													{0.4447, 0.1389},
-													{0.6154, 0.2028},
-													{0.7919, 0.1987},
-													{0.9218, 0.6038},
-													{0.7382, 0.2722},
-													{0.1763, 0.1988} };
+	//Multivector<double > n = 1.0*e(1) + 1.0*e(2) + 1.0*e(3) + +1.0*e(4);
+
+	std::vector<std::vector<double>> matrixPoint { { -1.5,3.2 },
+													{ 1.8,3.3 },
+													{ -3.7,1.5 },
+													{ -1.5,1.3 },
+													{ 0.8,1.2 },
+													{ 3.3,1.5 },
+													{ -4.0,-1.0},
+													{ -2.3,-0.7 },
+													{ 0,-0.5 },
+													{ 2.0,-1.5 },
+													{ 3.7,-0.8 },
+													{ -3.5,-2.9 },
+													{ -0.9,-3.9 },
+													{ 2.0,-3.5 },
+													{ 3.5,-2.25 } };
 	
 
-	alg::DelaunayTriangulation dl = alg::generateDelaunayTriangulation(matrixPoint);
+	alg::DelaunayTriangulation dl = alg::generateDelaunayTriangulation2D_matlab(matrixPoint);
+
+	alg::Voronoi vr = alg::generateVoronoi(dl);
+
+	for (int i = 0; i < vr.m_region.size(); i++)
+		for (int j = 0; j < vr.m_region[i].size(); j++) {
+			std::cout << vr.m_map_id_simplex_pontoFinito[vr.m_region[i][j]].getCoefBladeBase(1) << ", ";
+			std::cout << vr.m_map_id_simplex_pontoFinito[vr.m_region[i][j]].getCoefBladeBase(2) << std::endl;
+		}
 
     return 0;
 }

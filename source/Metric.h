@@ -18,8 +18,8 @@ public:
 	Orthogonal(){
 	}
 
-    Orthogonal(std::vector<T> a ): m(a){
-     
+    Orthogonal(std::vector<T> a ){
+		m = a;
     }
 
     T eval(int i, int) const {
@@ -29,6 +29,10 @@ public:
     T eval(int i) const {
         return eval(i,i);
     }
+
+	size_t getSize() const{
+		return m.size();
+	}
 
 protected:
 	void set_value(T value){

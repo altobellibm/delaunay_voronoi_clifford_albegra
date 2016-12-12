@@ -154,6 +154,7 @@
     <ClInclude Include="..\..\source\MatlabEng.h" />
     <ClInclude Include="..\..\source\Metric.h" />
     <ClInclude Include="..\..\source\Multivector.h" />
+    <ClInclude Include="..\..\source\Utils.h" />
     <ClInclude Include="..\..\source\voronoi_delaunayTriangulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
